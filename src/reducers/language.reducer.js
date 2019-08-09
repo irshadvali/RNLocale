@@ -17,7 +17,6 @@ const language = (
                 languageStatus: action.status,
             });
         case languageAction.CHANGE_LANGUAGE_SUCCESS: {
-            console.log(action.taskListResult);
             return Object.assign({}, state, {
                 languageName: action.languageName,
                 languageLoading: false,
