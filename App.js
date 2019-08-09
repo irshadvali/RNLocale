@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { View } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import FirstPage from "./src/FirstPage"
+import FirstPage from "./src/components/FirstPage";
+import configureStore from "./configStore";
+import { Provider } from "react-redux";
 
 
 const MainNavigator = createStackNavigator({
@@ -11,18 +13,27 @@ const MainNavigator = createStackNavigator({
 
 // const App = createAppContainer(MainNavigator);
 const AppContainer = createAppContainer(MainNavigator);
-export default class App extends Component {
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true,
+      store: configureStore(() => this.setState({ isLoading: false })),
+    };
+  }
 
   componentDidMount() {
     console.disableYellowBox = true;
   }
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        {/* <View style={{ height: Constants.statusBarHeight, backgroundColor: colors.statusbarColor }} /> */}
-        <AppContainer />
-      </View>
+      <Provider store={this.state.store}>
+        <View style={{ flex: 1 }}>
+
+          <AppContainer />
+        </View>
+      </Provider>
     );
   }
 }
-
+export default App;

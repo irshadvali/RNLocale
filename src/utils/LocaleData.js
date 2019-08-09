@@ -1,8 +1,5 @@
 
 import i18n from 'i18n-js';
-
-
-
 export const en = {
     welcome: 'Welcome',
     name: 'irshad',
