@@ -2,9 +2,10 @@ import * as React from 'react';
 import { Text, View, StyleSheet, Button, AsyncStorage } from 'react-native';
 import moment from "moment"
 import { Card } from 'react-native-paper';
+import LanguageModal from "./LanguageModal"
 
 import i18n from 'i18n-js';
-import { multiLangText } from "./utils/utils"
+import { multiLangText } from "./../utils/LocaleData"
 
 
 export default class FirstPage extends React.Component {
@@ -14,12 +15,10 @@ export default class FirstPage extends React.Component {
     };
     constructor(props) {
         super(props);
-        // let lng = AsyncStorage.getItem("LANGUAGE_KEY");
         this.state = {
             selectLanguage: multiLangText.english,
         }
         this.setLanguage();
-        // i18n.locale = this.state.selectLanguage;
     }
 
     setLanguage = async () => {
@@ -87,6 +86,7 @@ export default class FirstPage extends React.Component {
                     color="#00acc1"
                     onPress={() => this.handleArbic(3)}
                 />
+                <LanguageModal />
             </View>
         );
     }
