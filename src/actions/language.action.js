@@ -30,6 +30,7 @@ export function changeLanguageFailure(errorMsg) {
 }
 
 export function changeLanguage(language) {
+    console.log("==========>", language)
     return async (dispatch, getState, api) => {
         dispatch(changeLanguageRequest());
         try {

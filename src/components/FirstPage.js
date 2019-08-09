@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Text, View, StyleSheet, Button, AsyncStorage } from 'react-native';
 import moment from "moment"
 import { Card } from 'react-native-paper';
-import LanguageModal from "./LanguageModal"
+import LanguageModalContainer from "./../containers/LanguageModalContainer"
 
 import i18n from 'i18n-js';
 import { multiLangText } from "./../utils/LocaleData"
@@ -86,7 +86,7 @@ export default class FirstPage extends React.Component {
                     color="#00acc1"
                     onPress={() => this.handleArbic(3)}
                 />
-                <LanguageModal />
+                <LanguageModalContainer />
             </View>
         );
     }
