@@ -1,8 +1,8 @@
+/* eslint-disable prettier/prettier */
 import * as languageAction from '../actions/language.action';
-
 const language = (
     state = {
-        languageName: "",
+        languageName: '',
         languageLoading: false,
         languageError: null,
         languageStatus: '',
@@ -17,6 +17,7 @@ const language = (
                 languageStatus: action.status,
             });
         case languageAction.CHANGE_LANGUAGE_SUCCESS: {
+            console.log('action.languageName====>', action.languageName);
             return Object.assign({}, state, {
                 languageName: action.languageName,
                 languageLoading: false,

@@ -1,14 +1,17 @@
-import React, { Component } from "react";
+/* eslint-disable prettier/prettier */
+import React, { Component } from 'react';
 import { View } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import FirstPage from "./src/components/FirstPage";
-import configureStore from "./configStore";
-import { Provider } from "react-redux";
-
+import FirstPageContainer from './src/containers/FirstPageContainer';
+import LanguageModalContainer from './src/containers/LanguageSettingContainer';
+import SecondScreenContainer from './src/containers/SecondScreenContainer';
+import configureStore from './configStore';
+import { Provider } from 'react-redux';
 
 const MainNavigator = createStackNavigator({
-  FirstPage: { screen: FirstPage },
-
+  FirstPageContainer: { screen: FirstPageContainer },
+  LanguageModalContainer: { screen: LanguageModalContainer },
+  SecondScreenContainer:{screen:SecondScreenContainer},
 });
 
 // const App = createAppContainer(MainNavigator);
@@ -29,7 +32,6 @@ class App extends Component {
     return (
       <Provider store={this.state.store}>
         <View style={{ flex: 1 }}>
-
           <AppContainer />
         </View>
       </Provider>
