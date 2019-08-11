@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import i18n from 'i18n-js';
 import { multiLangText } from './../utils/LocaleData';
 
-class FirstPage extends React.Component {
+class SecondScreen extends React.Component {
 	static navigationOptions = {
 		//To hide the NavigationBar from current Screen
 		header: null,
@@ -29,7 +29,10 @@ class FirstPage extends React.Component {
 		});
 		this.props.changeLanguage(lng || multiLangText.english);
 	};
-
+	goBack = () => {
+		const { goBack } = this.props.navigation;
+		goBack();
+	};
 	goToSetting = () => {
 		const { navigate } = this.props.navigation;
 		navigate({
@@ -38,24 +41,16 @@ class FirstPage extends React.Component {
 		});
 	};
 
-	goToSecondScreen=()=>{
-		const { navigate } = this.props.navigation;
-		navigate({
-			routeName: 'SecondScreenContainer',
-			key: 'SecondScreenContainer',
-		});
-	}
-
 	render() {
 		i18n.locale = this.props.languageName || this.state.selectLanguage;
 		return (
 			<View style={styles.container}>
-				<View style={{ height: 56, width: '100%', backgroundColor: '#C2185B', justifyContent: 'center',alignItems: 'flex-end'}}>
+				<View style={{ height: 56, width: '100%', backgroundColor: '#00695C', justifyContent: 'center',alignItems: 'flex-end'  }}>
 					<TouchableOpacity onPress={() => this.goToSetting()}>
 						<View
 							style={{
 								justifyContent: 'center',
-								backgroundColor: '#880E4F',
+								backgroundColor: '#004D40',
 								paddingHorizontal: 20,
 								paddingVertical: 10,
 								alignItems: 'center',
@@ -70,7 +65,7 @@ class FirstPage extends React.Component {
 				</View>
 
 				<View style={{ padding: 20 }}>
-					<Card style={{ padding: 20,marginBottom: 20}}>
+					<Card style={{ padding: 20, marginBottom: 20 }}>
 						<Text>
 							{i18n.t('welcome')}, {i18n.t('name')}
 						</Text>
@@ -79,11 +74,13 @@ class FirstPage extends React.Component {
 								someValue: moment().format('MMMM Do YYYY, h:mm:ss a'),
 							})}
 						</Text>
+						<Text>
+							{i18n.t('city')}, {i18n.t('state')}
+						</Text>
+						<Text>{i18n.t('pincode')}</Text>
 					</Card>
-
-					<Button title="Go to next page" color="#00acc1" onPress={() => this.goToSecondScreen()} />
+					<Button title="Go Back" color="#00acc1" onPress={() => this.goBack()} />
 				</View>
-
 			</View>
 		);
 	}
@@ -95,10 +92,10 @@ const styles = StyleSheet.create({
 		backgroundColor: '#f0f0f0',
 	},
 });
-export default FirstPage;
-FirstPage.propTypes = {
+export default SecondScreen;
+SecondScreen.propTypes = {
 	navigation: PropTypes.object,
 	languageName: PropTypes.string,
 };
 
-FirstPage.defaultProps = {};
+SecondScreen.defaultProps = {};
