@@ -7,6 +7,7 @@ export const en = {
   state: 'Uttar Pradesh',
   city:'Kanpur',
   pincode:'208019',
+  lanuageText:'Change Language',
 };
 export const fr = {
   welcome: 'Bienvenue',
@@ -15,6 +16,7 @@ export const fr = {
   state: 'Uttar Pradesh',
   city:'Kanpur',
   pincode:'208019',
+  lanuageText:'Changer de langue',
 };
 export const ar = {
   welcome: 'أهلا بك',
@@ -23,6 +25,7 @@ export const ar = {
   state: 'ولاية اوتار براديش',
   city:'كانبور',
   pincode:'٢٠٨٠١٩',
+  lanuageText:'غير اللغة',
 };
 export const hi = {
   welcome: 'स्वागत हे',
@@ -31,6 +34,7 @@ export const hi = {
   state: 'उत्तर प्रदेश',
   city:'कानपुर',
   pincode:'२०८०१९',
+  lanuageText:'भाषा बदलो',
 };
 
 export const multiLangText = {

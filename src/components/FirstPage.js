@@ -64,7 +64,7 @@ class FirstPage extends React.Component {
 								borderRadius: 3,
 							}}
 						>
-							<Text style={{ color: '#ffffff' }}>Setting</Text>
+							<Text style={{ color: '#ffffff' }}>{i18n.t('lanuageText')}</Text>
 						</View>
 					</TouchableOpacity>
 				</View>
